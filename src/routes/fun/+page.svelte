@@ -1,4 +1,9 @@
 <script>
+    import UserButton from 'clerk-sveltekit/client/UserButton.svelte'
+	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte'
+	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte'
+
+
     let filler = [{name: "first", username: "hellow", password: "wassup"}, {name: "second", username: "goodbtye", password: "univeasdfasdfrse"},
                   {name: "third", username: "john", password: "cena"}, {name: "Fourth", username: "aneeshyboneechyelectric", password: "hi"}]
 
@@ -21,7 +26,8 @@
 
 
 <div class = "allContainer">
-    <div class="title">STORE ALL YOUR STUFFZ</div>
+    <UserButton afterSignOutUrl="/" />
+    <div class="title">HERE'S YOUR STUFFZ</div>
     {#each filler as {name, username, password}, i}
         <div class="contentContainer">
             <div class = "name">{name}</div>
