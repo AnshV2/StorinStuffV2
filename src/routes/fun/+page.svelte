@@ -15,7 +15,7 @@
         // Alert the copied text
         alert("Copied the text: " + text);
     }
-    function copyPassword(i) {kkkkkkkkkkkk
+    function copyPassword(i) {
         var text = filler[i].password
 
         navigator.clipboard.writeText(text);
@@ -25,10 +25,9 @@
     }
 </script>
 
-
+<div class = "profilePic"><UserButton afterSignOutUrl="/" className = "profilePic"/></div>
+<a href="/addThing" class="plus">Add A Thing</a>
 <div class = "allContainer">
-    <a href="/addThing">Add A Thing</a>
-    <UserButton afterSignOutUrl="/" />
     <div class="title">HERE'S YOUR STUFFZ</div>
     {#each filler as {name, username, password}, i}
         <div class="contentContainer">
@@ -96,5 +95,28 @@
         padding: 0.5vh;
         background-color: blanchedalmond;
         border-radius: 10%;
+    }
+    .profilePic{
+        position:absolute;
+        left: 1vw;
+        top:1vh;
+    }
+    a:link, a:visited {
+        position:absolute;
+        left: 4.5vw;
+        top: 1vh;
+        background-color: white;
+        color: black;
+        border: 2px solid darksalmon;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 5px;
+    }
+
+    a:hover, a:active {
+        background-color:darksalmon;
+        color: white;
     }
 </style>
