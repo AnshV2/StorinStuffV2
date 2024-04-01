@@ -2,10 +2,11 @@
     import UserButton from 'clerk-sveltekit/client/UserButton.svelte'
 	import SignedIn from 'clerk-sveltekit/client/SignedIn.svelte'
 	import SignedOut from 'clerk-sveltekit/client/SignedOut.svelte'
+    export let data;
 
 
-    let filler = [{name: "first", username: "hellow", password: "wassup"}, {name: "second", username: "goodbtye", password: "univeasdfasdfrse"},
-                  {name: "third", username: "john", password: "cena"}, {name: "Fourth", username: "aneeshyboneechyelectric", password: "hi"}]
+    let filler = data.data
+    console.log(data.data[0])
 
     function copyUsername(i) {
         var text = filler[i].username

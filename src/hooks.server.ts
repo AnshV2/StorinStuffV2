@@ -13,7 +13,7 @@ if (!CLERK_SECRET_KEY) {
 export const handle: Handle = sequence(
   handleClerk(CLERK_SECRET_KEY, {
     debug: true,
-    protectedPaths: ['/admin'],
-    signInUrl: '/sign-in',
+    protectedPaths: ['/addThing', '/fun'],
+    signInUrl: '/signin',
   })
 )

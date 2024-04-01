@@ -1,16 +1,25 @@
 <script>
-
+    
 </script>
 
 <div>
     <div>ADD A THING </div>
-    <div>Name:</div>
-    <input>
-    <div>Username:</div>
-    <input>
-    <div>Password:</div>
-    <input>
     
+    <form method="POST">
+        <label>
+            Name
+            <input name="Name" type="name">
+        </label>
+        <label>
+            Username
+            <input name="Username" type="username">
+        </label>
+        <label>
+            Password
+            <input name="Password" type="password">
+        </label>
+        <button>add item</button>
+    </form>
 </div>
 
 

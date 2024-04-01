@@ -14,7 +14,7 @@ if (!PUBLIC_CLERK_PUBLISHABLE_KEY) {
 initializeClerkClient(PUBLIC_CLERK_PUBLISHABLE_KEY, {
 	afterSignInUrl: '/admin/',
 	afterSignUpUrl: '/admin/',
-	signInUrl: '/sign-in',
+	signInUrl: '/signin',
 	signUpUrl: '/sign-up',
 })
 

@@ -9,8 +9,15 @@ const client = createClient({
 
 
 
-export const actions = {
-	default: async (event) => {
-		await client.execute("");
-	}
-};
+export async function load({ locals }) {
+    let user = locals.session.userId
+	const data = await client.execute({
+		sql: "SELECT * FROM stuff WHERE user = ?;",
+		args: [user]
+	});
+	return {
+		data: data.rows
+	};
+}
+
+
