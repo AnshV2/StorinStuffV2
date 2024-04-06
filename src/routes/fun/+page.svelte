@@ -6,7 +6,6 @@
 
 
     let filler = data.data
-    console.log(data.data[0])
 
     function copyUsername(i) {
         var text = filler[i].username
@@ -29,7 +28,7 @@
 <a href="/addThing" class="plus">Add A Thing</a>
 <div class = "allContainer">
     <div class="title">HERE'S YOUR STUFFZ</div>
-    {#each filler as {name, username, password}, i}
+    {#each filler as {ID, name, username, password}, i}
         <div class="contentContainer">
             <div class = "name">{name}</div>
             <div class="grid-container">
@@ -40,6 +39,17 @@
                 <div class="itemTwo">{password}</div>
                 <button class="itemThree" on:click={() => {copyPassword(i)}}>Copy</button>
             </div>
+            <button on:click={async() => {
+                const response = await fetch('/api/delete', {
+                    method: 'DELETE',
+                    body: JSON.stringify({ id: ID }),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                });
+                filler = filler.filter(member => member.ID !== ID);
+
+            }} class = "delete">delete thing</button>
         </div>
     {/each}
 </div>
@@ -64,7 +74,7 @@
     .contentContainer{
         font-size: 2vh;
         color: black;
-        padding: 5vh;
+        padding: 4vh;
         border-bottom: 1px solid;
     }
     .name{
@@ -116,6 +126,23 @@
     }
 
     a:hover, a:active {
+        background-color:darksalmon;
+        color: white;
+    }
+
+    .delete{
+        margin-top: 3vh;;
+        background-color: white;
+        color: black;
+        border: 2px solid darksalmon;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 5px;
+    }
+
+    .delete:hover{
         background-color:darksalmon;
         color: white;
     }
